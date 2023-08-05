@@ -42,6 +42,7 @@ class HomeController < ApplicationController
   def fetch_and_create_user_repositories(username)
     # Fetch user repositories from GitHub API
     user_repos = GithubApi.user_repositories(username)
+    return unless user_repos.present?
 
     # Use bulk insert to create repositories
     repositories_to_create = user_repos.map do |repo_data|
