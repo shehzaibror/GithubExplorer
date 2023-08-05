@@ -1,0 +1,31 @@
+<!-- app/views/home/show.html.erb -->
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Github User Explorer</h2>
+              <p class="text-white-50 mb-4">Please enter the Github Username</p>
+
+              <%= form_with(url: show_path, method: :get, class: "mb-4") do %>
+                <div class="form-outline form-white mb-4">
+                  <%= text_field_tag :username, nil, required: true, placeholder: 'Username', class: 'form-control form-control-lg' %>
+                </div>
+                <%= submit_tag 'Search', class: 'btn btn-outline-light btn-lg fw-bold px-5' %>
+              <% end %>
+            </div>
+
+            <div>
+              <p class="fw-bold mb-0">Don't have an account? <a href="https://github.com/join" class="text-white-40">Github Sign Up</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

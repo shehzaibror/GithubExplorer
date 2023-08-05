@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
+.bg-pitch-black {
+  background-color: #000000;
+}

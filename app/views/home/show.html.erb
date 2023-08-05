@@ -1,0 +1,33 @@
+<!-- app/views/home/show.html.erb -->
+<div class="container">
+  <div class="row">
+    <!-- User Information (Left Side) -->
+    <div class="col-md-4">
+      <div class="card bg-dark text-white mt-4">
+        <h2 class="card-title text-center fw-bold mt-2 mb-3"><%= @user.username %></h2>
+        <img src="<%= @user.avatar_url %>" alt="Avatar" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text fw-bold"><%= @user.full_name %></p>
+          <p class="card-text fw-bold"><%= @user.location %></p>
+          <p class="card-text fw-bold"><%= @user.email %></p>
+          <p class="card-text fw-bold">Followers: <%= @user.followers_count %></p>
+          <p class="card-text fw-bold">Following: <%= @user.following_count %></p>
+          <p class="card-text fw-bold"><%= @user.bio %></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repositories (Right Side) -->
+    <div class="col-md-8">
+      <h2 class="fw-bold text-white mt-4">Repositories:</h2>
+      <ul class="list-group">
+        <% @user.repositories.each do |repo| %>
+          <li class="list-group-item bg-dark text-white">
+            <%= link_to repo.name, repo.url, target: "_blank", class: "text-white fw-bold" %>
+            <p class="mb-0 text-white-50"><%= repo.description %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
